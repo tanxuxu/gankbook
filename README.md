@@ -14,7 +14,10 @@ npm run dev
 # build for production with minification
 npm run build
 ```
+# 图例
 
+<img style="display:inline-block" src="https://raw.githubusercontent.com/tanxuxu/gankbook/master/src/assets/1.png"/>
+<img  style="display:inline-block"  src="https://raw.githubusercontent.com/tanxuxu/gankbook/master/src/assets/2.png"/>
 
 # 运用库
 * vue2.0    
