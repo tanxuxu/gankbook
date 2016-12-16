@@ -1,50 +1,46 @@
 <template>
   <div id="app">
-  	 <div class="page-group">
-        <div class="page page-current">
-        	<!--头部-->
-        	 <header class="bar bar-nav">
-				   <!-- <a class="icon icon-menu open-panel"  data-panel='#panel-left-demo'></a>-->
-				    <button class="button pull-left">
-					    <a class="icon icon-menu open-panel"  data-panel='#panel-left-demo'></a>
-					  </button>
-				    <h1 class="title">我的生活</h1>
-				  </header>
-				  <!--底部菜单栏-->
-				   <nav class="bar bar-tab">
-				    <a class="tab-item active" href="#">
-				    	
-				      <span class="icon icon-home"></span>
-				      <span class="tab-label">首页</span>
-				    </a>
-				    <a class="tab-item" href="#">
-				      <span class="icon icon-me"></span>
-				      <span class="tab-label">我</span>
-				    </a>
-				    <a class="tab-item" href="#">
-				      <span class="icon icon-star"></span>
-				      <span class="tab-label">收藏</span>
-				    </a>
-				    <a class="tab-item" href="#">
-				      <span class="icon icon-settings"></span>
-				      <span class="tab-label">设置</span>
-				    </a>
-				  </nav>
-				   <!--内容-->
-				   <div class="content">
-						<router-view class="view" v-bind:type="type"></router-view>
-				  </div>
-        </div>
-    </div>
-
- <!--侧栏-->
- <div class="panel-overlay"></div>
-<!-- Left Panel with Reveal effect -->
-<div class="panel panel-left panel-reveal slidebar_box" id="panel-left-demo">
-  <div class="content-block ">
-				 <h2>休息时刻</h2>
+		<!-- page 容器 -->
+		<div class="page">
+		  <!-- 标题栏 -->
+		  <header class="bar bar-nav">
+		    <a class="icon icon-menu pull-left open-panel"></a>
+		    <h1 class="title">{{type}}</h1>
+		  </header>
+		 
+		  <!-- 工具栏 -->
+		  <nav class="bar bar-tab bar-footer">
+		    	<router-link to="/" href="" class="tab-item active">
+			      <span class="icon icon-home"></span>
+			      <span class="tab-label">最新</span>
+		     </router-link>
+		    	<router-link to="/joke" href="" class="tab-item">
+			      <span class="icon icon-star"></span>
+			      <span class="tab-label">段子</span>
+		     </router-link>
+		    	<router-link to="/ganhuo" href="" class="tab-item">
+			      <span class="icon icon-settings"></span>
+			      <span class="tab-label">干货</span>
+		     </router-link>
+		     	<router-link to="/ganhuo" href="" class="tab-item">
+			      <span class="icon icon-settings"></span>
+			      <span class="tab-label">干货</span>
+		     </router-link>
+		  </nav>
+		  <!--内容-->
+		   <div class="content">
+				<router-view class="view" v-bind:type="type"></router-view>
+		  </div>
+ </div> 
+		<!-- popup, panel 等放在这里 -->
+	  <div class="panel-overlay"></div>
+		<!-- Left Panel with Reveal effect -->
+		<div class="panel panel-left panel-reveal slidebar_box">
+		  <div class="content-block">
+		  	  <h2>休息时刻</h2>
 		     <div class="list_box" style="padding-left: 20px;">
 		     	<ul>
+		     		<li @click="filterData('福利')">福利</li>
 		     		<li @click="filterData('休息视频')">休息视频</li>
 		     		<li @click="filterData('前端')">前端</li>
 		     		<li @click="filterData('Android')">安卓</li>
@@ -53,9 +49,10 @@
 		     		<li @click="filterData('瞎推荐')">瞎推荐</li>
 		     	</ul>
 		     </div>
+		  </div>
+		</div>
   </div>
-</div>
- </div> 
+
 </template>
 <script>
 import home from './component/home.vue'
@@ -64,7 +61,7 @@ export default {
   name: 'app',
   data () {
     return {
-      type: '福利'
+      type: '最新'
     }
   },
   methods:{
